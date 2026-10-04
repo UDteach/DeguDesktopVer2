@@ -12,9 +12,10 @@ fs.mkdirSync(reportDir,{recursive:true});
 const profile=path.join(reportDir,'profile');
 const {ELECTRON_RUN_AS_NODE,...env}=process.env;
 const report={platform:process.platform,arch:process.arch,executablePath,checks:[],errors:[]};
+report.timings=[];
 let application;
 const pass=name=>{report.checks.push(name);console.log(`PASS ${name}`);};
-async function waitSettings(){for(let i=0;i<200;i++){const p=application.windows().find(p=>p.url().endsWith('/settings.html'));if(p){await p.waitForFunction(()=>window.deguPreviewDiagnostics?.ready);return p;}await new Promise(r=>setTimeout(r,100));}throw Error('Settings did not become ready');}
+async function waitSettings(){const start=Date.now();for(let i=0;i<200;i++){const p=application.windows().find(p=>p.url().endsWith('/settings.html'));if(p){await p.waitForFunction(()=>window.deguPreviewDiagnostics?.ready,undefined,{timeout:90000});report.timings.push({stage:'settings-ready',ms:Date.now()-start});return p;}await new Promise(r=>setTimeout(r,100));}throw Error('Settings did not become ready');}
 async function overlays(){await application.evaluate(()=>{if(globalThis.deguRuntime.failures.length)throw Error(globalThis.deguRuntime.failures.join(';'));});for(let i=0;i<200;i++){const pages=application.windows().filter(p=>p.url().endsWith('/overlay.html'));if(pages.length&& (await Promise.all(pages.map(p=>p.evaluate(()=>window.deguDiagnostics?.ready)))).every(Boolean))return pages;await new Promise(r=>setTimeout(r,100));}throw Error('Overlays did not load');}
 try{
   application=await _electron.launch({executablePath,args:[`--qa-profile=${profile}`,'--settings'],env,timeout:90000});
@@ -47,5 +48,5 @@ try{
   assert.deepEqual((await page.evaluate(()=>window.degu.getState())).settings,saved);
   assert.equal(report.errors.length,0);pass('restart restores settings with no renderer errors');
   report.passed=true;
-}catch(error){report.passed=false;report.failure=error.stack;console.error(error);process.exitCode=1;}
+}catch(error){report.passed=false;report.failure=error.stack;if(application){try{report.runtime=await application.evaluate(()=>({failures:globalThis.deguRuntime?.failures,overlays:globalThis.deguRuntime?.overlays}));report.pages=await Promise.all(application.windows().map(async p=>({url:p.url(),state:await p.evaluate(()=>({visibility:document.visibilityState,preview:window.deguPreviewDiagnostics,error:document.querySelector('#error')?.textContent}))})));}catch(probe){report.diagnosticFailure=probe.message;}}console.error(error);process.exitCode=1;}
 finally{if(application)await application.close();fs.writeFileSync(path.join(reportDir,'report.json'),JSON.stringify(report,null,2));console.log(path.relative(root,reportDir));}

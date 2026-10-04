@@ -1,6 +1,15 @@
 name: Build and verify desktop packages
 on:
   workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish after all checks (app and package must match the existing version tag)
+        type: boolean
+        default: false
+      tag:
+        description: Existing version tag, such as v0.2.1
+        type: string
+        default: ''
   push:
     tags: ['v*']
 permissions:
@@ -26,6 +35,16 @@ jobs:
       CSC_IDENTITY_AUTO_DISCOVERY: 'false'
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Verify existing release tag has identical app and packaging
+        if: inputs.publish == true
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          node -e "if(process.env.RELEASE_TAG !== 'v'+require('./package.json').version) throw Error('Tag must match package version')"
+          git diff --exit-code "$RELEASE_TAG" -- app package.json package-lock.json docs/QUICKSTART-ja.txt THIRD_PARTY_NOTICES.md
       - uses: actions/setup-node@v4
         with:
           node-version: 24
@@ -72,7 +91,7 @@ jobs:
           if-no-files-found: ignore
           include-hidden-files: true
   release:
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v') || inputs.publish == true
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -91,4 +110,5 @@ jobs:
       - name: Publish tested release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" artifacts/DeguDesktopVer2-* artifacts/SHA256SUMS.txt --verify-tag --title "DeguDesktopVer2 $GITHUB_REF_NAME" --notes-file docs/RELEASE-NOTES.md
+          RELEASE_TAG: ${{ inputs.publish && inputs.tag || github.ref_name }}
+        run: gh release create "$RELEASE_TAG" artifacts/DeguDesktopVer2-* artifacts/SHA256SUMS.txt --verify-tag --title "DeguDesktopVer2 $RELEASE_TAG" --notes-file docs/RELEASE-NOTES.md
