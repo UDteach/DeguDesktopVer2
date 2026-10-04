@@ -1,0 +1,16 @@
+DeguDesktopVer2 0.2.0
+
+Windows: EXEでインストール、またはZIPをすべて展開してDeguDesktopVer2.exeを起動。
+Mac: チップに合うDMGを開き、DeguDesktopVer2.appをApplicationsにドラッグして起動。
+macOS 13以降、Apple Silicon / Intel向け。Windowsは10以降のx64向けです。
+
+初回に設定画面が開きます。毛色・名前・数・大きさ・速度は自動保存します。
+設定を閉じても常駐します。終了はトレイ／メニューバーのデグーから選びます。
+動物はクリックを遮りません。散歩・待機・ダッシュ、くしくし・立ち上がり・回し車、
+アグーチの足ぴーんを収録しています。
+
+開発者証明書による署名とApple公証はありません。Macはアドホック署名のみです。
+初回の開き方、更新、削除、SHA-256確認:
+https://udteach.github.io/DeguDesktopVer2/download.html
+
+MofuMouseのデグーアニメーションを使用。Node.js・Python・Goは不要です。

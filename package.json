@@ -1,0 +1,37 @@
+{
+  "name": "degu-desktop-ver2",
+  "version": "0.2.0",
+  "private": true,
+  "description": "MofuMouseのアニメーションで過ごすデスクトップのデグー",
+  "author": "UDteach",
+  "main": "app/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.mjs",
+    "check": "node scripts/check.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "dist:win": "npm run check && electron-builder --win nsis zip --x64 --publish never",
+    "dist:mac": "npm run check && electron-builder --mac dmg zip --x64 --arm64 --publish never",
+    "site:build": "node scripts/build-site.mjs",
+    "site:check": "node scripts/check-site.mjs",
+    "smoke:release": "node scripts/smoke-release.mjs"
+  },
+  "engines": { "node": ">=24" },
+  "devDependencies": {
+    "electron": "44.4.5",
+    "electron-builder": "26.15.3",
+    "playwright": "1.62.1"
+  },
+  "build": {
+    "appId": "com.kdevelopk.degudesktop.ver2",
+    "productName": "DeguDesktopVer2",
+    "directories": { "output": "release" },
+    "files": ["app/**/*", "package.json", "THIRD_PARTY_NOTICES.md"],
+    "win": { "target": ["nsis", "zip"], "icon": "app/icon.ico", "signExecutable": false, "artifactName": "DeguDesktopVer2-${version}-windows-${arch}.${ext}" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "perMachine": false, "createDesktopShortcut": true, "createStartMenuShortcut": true, "shortcutName": "DeguDesktopVer2" },
+    "extraFiles": [{ "from": "docs/QUICKSTART-ja.txt", "to": "はじめに.txt" }],
+    "artifactName": "DeguDesktopVer2-${version}-${os}-${arch}.${ext}",
+    "mac": { "target": ["dmg", "zip"], "icon": "app/icon.icns", "category": "public.app-category.entertainment", "minimumSystemVersion": "13.0", "identity": "-", "notarize": false, "hardenedRuntime": false, "artifactName": "DeguDesktopVer2-${version}-mac-${arch}.${ext}" },
+    "dmg": { "title": "DeguDesktopVer2 ${version}", "contents": [{ "x": 140, "y": 180 }, { "x": 420, "y": 180, "type": "link", "path": "/Applications" }] }
+  }
+}

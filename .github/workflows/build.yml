@@ -1,0 +1,88 @@
+name: Build and verify desktop packages
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-2022
+            platform: windows
+            arch: x64
+          - os: macos-15-intel
+            platform: mac
+            arch: x64
+          - os: macos-15
+            platform: mac
+            arch: arm64
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 35
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run check
+      - name: Windows installer and ZIP
+        if: matrix.platform == 'windows'
+        run: npx electron-builder --win nsis zip --x64 --publish never
+      - name: Mac DMG and ZIP
+        if: matrix.platform == 'mac'
+        run: npx electron-builder --mac dmg zip --${{ matrix.arch }} --publish never
+      - name: Verify Windows package bytes
+        if: matrix.platform == 'windows'
+        run: node scripts/verify-package.mjs
+      - name: Verify Mac package bytes
+        if: matrix.platform == 'mac'
+        run: node scripts/verify-package.mjs --archive=release/${{ matrix.arch == 'arm64' && 'mac-arm64' || 'mac' }}/DeguDesktopVer2.app/Contents/Resources/app.asar
+      - name: Launch and inspect packaged app
+        run: npm run smoke:release
+      - name: Checksums
+        run: node scripts/release-checksums.mjs
+      - name: Upload tested artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: desktop-${{ matrix.platform }}-${{ matrix.arch }}
+          path: |
+            release/DeguDesktopVer2-*.exe
+            release/DeguDesktopVer2-*.zip
+            release/DeguDesktopVer2-*.dmg
+            release/SHA256SUMS.txt
+          if-no-files-found: error
+      - name: Preserve diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-${{ matrix.platform }}-${{ matrix.arch }}
+          path: .codex/qa/release-*/
+          if-no-files-found: ignore
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: desktop-*
+          merge-multiple: true
+          path: artifacts
+      - run: node scripts/release-checksums.mjs artifacts
+      - name: Publish tested release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" artifacts/DeguDesktopVer2-* artifacts/SHA256SUMS.txt --verify-tag --title "DeguDesktopVer2 $GITHUB_REF_NAME" --notes-file docs/RELEASE-NOTES.md

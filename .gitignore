@@ -1,0 +1,15 @@
+node_modules/
+release/
+.codex/
+assets/candidates/
+output/
+*.log
+site/assets/generated/
+docs/motions/face-grooming/
+docs/motions/popcorn-jump/
+docs/motions/leg-stretch/
+docs/motions/running-wheel/
+__pycache__/
+*.pyc
+docs/design/evidence/
+docs/QA-latest.json

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DeguDesktopVer2 — デスクトップで、デグーと暮らす。</title>
+  <meta name="description" content="画面のすみで散歩するデグー。10の毛色から好きな子を選んで、Windows・Macのデスクトップに。">
+  <meta property="og:title" content="DeguDesktopVer2"><meta property="og:description" content="デスクトップで、デグーと暮らす。Windows・Mac向け。">
+  <meta name="theme-color" content="#f7f3eb"><link rel="icon" href="assets/degu.png"><link rel="stylesheet" href="style.css">
+  <script type="module" src="demo.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ</a>
+  <header class="header"><a class="brand" href="./"><img src="assets/degu.png" width="48" height="32" alt="">DeguDesktop<span>Ver2</span></a><nav aria-label="メイン"><a href="#try">動きを見る</a><a href="#how">使い方</a><a class="nav-download" href="download.html">ダウンロード ↗</a><a class="source" href="https://github.com/UDteach/DeguDesktopVer2">GitHub</a></nav></header>
+  <main id="main">
+    <section class="hero wrap">
+      <div class="hero-copy"><p class="eyebrow">作業のそばに、小さな暮らし。</p><h1>デスクトップで、<br>デグーと暮らす。</h1><p class="lead">画面のすみを歩いたり、<br>お顔をくしくししたり。<br>いつものデスクトップに、デグーの時間を。</p><div class="actions"><a class="button primary" href="download.html">アプリをダウンロード ↗</a><a class="button" href="#try">まずは動きを見る ↓</a></div><p class="subtle">Windows・Mac向け。10の毛色、1〜10匹。</p></div>
+      <div class="desktop-demo" aria-label="デスクトップでの表示イメージ"><div class="window-bar"><span>● ● ●</span><span>DeguDesktopVer2</span></div><div class="desktop-paper"><div class="paper-window" aria-hidden="true"><span>● ● ●</span><i></i><i></i><i></i><i></i></div><canvas id="hero-canvas" aria-label="デグーが画面下を散歩するアニメーション"></canvas><span class="desktop-caption">いつもの壁紙に、そっと。</span></div><div class="hero-controls"><span>アグーチの散歩</span><button id="hero-toggle" type="button" aria-pressed="false">動きを止める</button></div></div>
+    </section>
+    <section id="how" class="how"><div class="wrap"><p class="eyebrow">はじめてのデグー</p><h2>好きな子を、画面のすみに。</h2><div class="steps"><article><span class="step-number">01</span><h3>アプリを開く</h3><p>Windowsはインストーラー、MacはDMGから。初回に設定画面が開きます。</p></article><article><span class="step-number">02</span><h3>毛色と名前を選ぶ</h3><p>1〜10匹、ひとりずつ毛色と名前を設定。大きさや歩く速さも変えられます。</p></article><article><span class="step-number">03</span><h3>あとは、いつもの作業を</h3><p>設定を閉じてもデグーは常駐。動きを止めたいときは、トレイやメニューバーから。</p></article></div><p class="how-note">デグーの上からも、背後のアプリをクリックできます。カーソルについてくることはありません。</p></div></section>
+    <section id="try" class="wrap gallery"><div class="section-heading"><div><p class="eyebrow">10の毛色と、日々のしぐさ</p><h2>どの子と暮らそう。</h2></div><p>毛色と動きを選んで、<br>アプリと同じアニメーションをお試しください。</p></div>
+      <div class="preview-stage"><canvas id="preview-canvas" aria-label="選んだデグーの動きを表示"></canvas><span class="ground-label">DeguDesktopVer2</span></div>
+      <div class="demo-controls"><label>毛色<select id="coat" disabled><option>読み込み中</option></select></label><label>動き<select id="action" disabled><option>読み込み中</option></select></label><button class="button" id="demo-toggle" type="button" aria-pressed="false">動きを止める</button></div><p id="demo-status" class="subtle" role="status" aria-live="polite">デグーを読み込んでいます。</p><button id="retry" type="button" class="button" hidden>読み込みをやり直す</button><noscript><p>動きのプレビューにはJavaScriptが必要です。アプリはダウンロードページから入手できます。</p></noscript>
+      <p class="motion-note">足ぴーんは現在アグーチのみ。立ち上がりは周りを見るしぐさです。回し車への出入りは短いフェードで表現しています。一部のアニメーションにAI生成素材を使用しています。</p>
+    </section>
+    <section class="closing wrap"><h2>今日から、デグーのいるデスクトップ。</h2><a class="button primary" href="download.html">Windows・Mac版をダウンロード ↗</a><p class="subtle">開き方や更新の手順も、ダウンロードページに。</p></section>
+  </main><footer class="wrap footer"><span>DeguDesktopVer2 · UDteach / kdevelopk</span><div><a href="https://github.com/UDteach/DeguDesktopVer2">ソースコード</a><a href="https://github.com/UDteach/DeguDesktopVer2/issues">不具合を報告</a><a href="https://udteach.github.io/AnimalsDesktopForReal/">Animals Desktop for Real</a></div></footer>
+</body></html>
