@@ -1,10 +1,72 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ダウンロード — DeguDesktopVer2</title><meta name="description" content="Windows・Mac用DeguDesktopVer2のダウンロード。インストールと更新、無署名アプリの開き方。"><meta name="theme-color" content="#f7f3eb"><link rel="icon" href="assets/degu.png"><link rel="stylesheet" href="style.css"><script type="module" src="downloads.mjs"></script></head><body>
-<a class="skip" href="#main">本文へ</a><header class="header"><a class="brand" href="./"><img src="assets/degu.png" width="48" height="32" alt="">DeguDesktop<span>Ver2</span></a><nav aria-label="メイン"><a href="index.html#try">動きを見る</a><a href="#install">インストール</a><a href="https://github.com/UDteach/DeguDesktopVer2/releases">リリース一覧 ↗</a></nav></header>
-<main id="main" class="wrap download-main"><p class="eyebrow">デグーを迎える</p><h1>ダウンロード</h1><p class="lead compact">Windows・Macのデスクトップへ。<br>Node.js、Python、Goのインストールは不要です。</p><p id="release-status" class="release-status" role="status">配布ファイルを確認しています。</p>
-<div class="platforms"><section class="platform"><h2>Windows</h2><p>Windows 10以降 · 64bit（x64）</p><a class="button primary" data-artifact="windows-x64.exe" href="https://github.com/UDteach/DeguDesktopVer2/releases">インストーラー（EXE）</a><a class="text-link" data-artifact="windows-x64.zip" href="https://github.com/UDteach/DeguDesktopVer2/releases">インストール不要のZIP ↗</a></section><section class="platform"><h2>Mac</h2><p>macOS 13以降 · Apple Silicon / Intel</p><a class="button primary" data-artifact="mac-arm64.dmg" href="https://github.com/UDteach/DeguDesktopVer2/releases">Apple Silicon用（DMG）</a><a class="button" data-artifact="mac-x64.dmg" href="https://github.com/UDteach/DeguDesktopVer2/releases">Intel用（DMG）</a><div class="zip-links"><a data-artifact="mac-arm64.zip" href="https://github.com/UDteach/DeguDesktopVer2/releases">Apple Silicon用ZIP ↗</a><a data-artifact="mac-x64.zip" href="https://github.com/UDteach/DeguDesktopVer2/releases">Intel用ZIP ↗</a></div></section></div>
-<div class="notice"><h2>コード署名・Apple公証について</h2><p>この版は開発者証明書によるコード署名とApple公証を行っていません。初回起動時にOSの確認が表示されることがあります。Mac版は動作に必要なアドホック署名のみを付けています。</p><p>配布元とファイル名を確認したうえで、下の手順を参照してください。</p></div>
-<section id="install" class="guide"><h2>インストールと初回起動</h2><div class="guide-columns"><article><h3>Windows</h3><ol><li>EXEを開き、インストール先を選びます。ZIP版はフォルダーごと展開します。</li><li>「WindowsによってPCが保護されました」が出た場合、配布元を確認して「詳細情報」→「実行」を選びます。</li><li>DeguDesktopVer2を起動すると設定画面が開きます。毛色や数を選んだら閉じて構いません。</li></ol><p>トレイのデグーアイコンを右クリックすると、設定・停止・非表示・終了を選べます。</p></article><article><h3>Mac</h3><ol><li>「このMacについて」でチップを確認し、対応するDMGを開きます。</li><li>DeguDesktopVer2.appをApplicationsへドラッグして、Applicationsから起動します。ZIP版も展開後にApplicationsへ移します。</li><li>開発元を確認できないため開けない場合、起動を一度試してから「システム設定」→「プライバシーとセキュリティ」→「このまま開く」を選びます。</li></ol><p>メニューバーのデグーアイコンから設定を開けます。起動できない場合は<a href="https://support.apple.com/ja-jp/102445">Appleの案内</a>も参照してください。</p></article></div></section>
-<section class="guide"><h2>更新・終了・削除</h2><dl><dt>更新する</dt><dd>トレイ／メニューバーから終了して、新しい版を同じ場所にインストールします。ZIP版は別フォルダーへ展開してください。Mac版はApplicationsのアプリを入れ替えます。設定は引き継ぎます。自動更新はありません。</dd><dt>終了する</dt><dd>設定画面を閉じてもアプリは常駐します。トレイ／メニューバーの「終了」を選んでください。</dd><dt>削除する</dt><dd>Windowsのインストーラー版は「インストールされているアプリ」から削除します。ZIP版は展開したフォルダーを削除します。Mac版はApplicationsからゴミ箱へ移します。</dd><dt>設定の保存先</dt><dd>Windows: <code>%APPDATA%\DeguDesktopVer2</code><br>Mac: <code>~/Library/Application Support/DeguDesktopVer2</code><br>削除後も設定は残ります。初期化したい場合は、終了後にこのフォルダーを削除してください。</dd></dl></section>
-<section class="guide"><h2>ファイルの照合</h2><p>各配布ファイルのSHA-256を公開しています。<a id="checksums" href="https://github.com/UDteach/DeguDesktopVer2/releases">SHA256SUMS.txtを開く ↗</a></p><details><summary>コマンドで確認する</summary><p>Windows PowerShell:</p><pre>Get-FileHash .\ダウンロードしたファイル.exe -Algorithm SHA256</pre><p>Mac ターミナル:</p><pre>shasum -a 256 ダウンロードしたファイル.dmg</pre><p>表示された値をSHA256SUMS.txtの同じファイル名の値と比較します。</p></details></section>
-<section class="guide"><h2>動作と確認状況</h2><p>散歩・待機・短いダッシュ、全10色のくしくし・立ち上がり・回し車、アグーチの足ぴーんを収録。アプリ内の操作と透過表示をWindowsで確認しています。Mac版はApple Silicon・Intel別のビルド環境で、起動・描画・停止・非表示・設定復元と、DMG・ZIPの内容一致を確認しました。実際のMacでの複数画面・スリープ復帰・初回のセキュリティ確認は、環境ごとの確認が必要です。</p><p>動物のしぐさと再生時間には演出上の調整があります。実際の飼育行動の観察用資料ではありません。</p><p><a href="https://github.com/UDteach/DeguDesktopVer2/blob/main/docs/DISTRIBUTION-QA.md">検査記録を見る ↗</a> · <a href="https://github.com/UDteach/DeguDesktopVer2/releases">更新履歴を見る ↗</a> · <a href="https://github.com/UDteach/DeguDesktopVer2/issues">不具合を報告する ↗</a></p></section>
-</main><footer class="wrap footer"><span>DeguDesktopVer2 · UDteach / kdevelopk</span><a href="./">紹介ページへ戻る</a></footer></body></html>
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ダウンロード — DeguDesktopVer2</title>
+  <meta name="description" content="動くデグーをお試し。10の毛色としぐさを選んで、Windows・Macのデスクトップへ。">
+  <meta name="theme-color" content="#f7f3eb">
+  <link rel="icon" href="assets/degu.png">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="demo.mjs"></script>
+  <script type="module" src="downloads.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+<header class="header">
+  <a class="brand" href="./"><img src="assets/degu.png" width="48" height="32" alt="">DeguDesktop<span>Ver2</span></a>
+  <nav aria-label="メイン"><a href="#try">動きを見る</a><a class="nav-download" href="#downloads">ダウンロード</a><a href="#install">開き方</a></nav>
+</header>
+<main id="main" class="download-page">
+  <section class="download-hero wrap" aria-labelledby="intro-title">
+    <div class="download-copy">
+      <p class="eyebrow">デスクトップに、小さな暮らし。</p>
+      <h1 id="intro-title">動きを見て、<br>好きなデグーを。</h1>
+      <p class="lead">散歩・くしくし・回し車。<br>毛色としぐさを、この場で試せます。</p>
+      <a class="button primary" href="#downloads">ダウンロードへ ↓</a>
+      <p class="subtle">Windows・Mac向け。10の毛色、1〜10匹。<br>アプリの起動にNode.js・Python・Goは不要です。</p>
+    </div>
+    <div id="try" class="download-preview">
+      <div class="preview-stage" data-mode="flock">
+        <div class="demo-desktop" aria-hidden="true"><div class="demo-desktop-clock">デスクトップの表示イメージ</div><div class="demo-shortcuts"><div><i class="folder-icon"></i><span>フォルダー</span></div><div><i class="memo-icon"></i><span>メモ</span></div></div><div class="paper-window demo-work-window"><span>● ● ●</span><i></i><i></i><i></i><i></i></div><div class="demo-taskbar"><i></i><i></i><i></i><span>DeguDesktopVer2</span></div></div>
+        <span class="ground-label">しぐさをお試し</span>
+        <img class="demo-poster" src="assets/degu.png" alt="" aria-hidden="true">
+        <canvas id="preview-canvas" data-size="144" data-count="10" data-action="face-grooming" aria-label="全10色のデグーがそれぞれ動くデモ。毛色としぐさを選ぶと1匹を拡大表示します。"></canvas>
+      </div>
+      <div class="demo-modes" role="group" aria-label="デモの表示"><button id="flock-mode" aria-pressed="true" disabled>デスクトップ</button><button id="single-mode" aria-pressed="false" disabled>1匹のしぐさ</button><button id="demo-expand" disabled>大きく見る</button></div>
+      <div class="demo-controls">
+        <label>毛色<select id="coat" disabled><option>読み込み中</option></select></label>
+        <label>しぐさ<select id="action" disabled><option>読み込み中</option></select></label>
+        <button id="demo-toggle" class="button" aria-pressed="false">動きを止める</button>
+      </div>
+      <p id="demo-status" class="subtle" role="status" aria-live="polite">デグーを読み込んでいます。</p>
+      <button id="retry" class="button" hidden>読み込みをやり直す</button>
+      <noscript><p class="subtle">動くデモにはJavaScriptが必要です。配布ファイルは下から入手できます。</p></noscript>
+      <p class="motion-note">デスクトップでの表示を再現しています。<br>毛色やしぐさを選ぶと、1匹を拡大して見られます。<br>足ぴーんは現在アグーチのみ。一部にAI生成素材を使用しています。</p>
+    </div>
+  </section>
+
+  <section id="downloads" class="wrap download-files" aria-labelledby="files-title">
+    <div class="files-heading"><h2 id="files-title">お使いのパソコンへ。</h2><p id="release-status" class="release-status" role="status">配布ファイルを確認しています。</p></div>
+    <div class="platforms">
+      <section class="platform"><h3>Windows</h3><p>Windows 10以降 · 64bit（x64）</p><a class="button primary" data-artifact="windows-x64.exe" href="https://github.com/UDteach/DeguDesktopVer2/releases">インストーラー EXE</a><a class="text-link" data-artifact="windows-x64.zip" href="https://github.com/UDteach/DeguDesktopVer2/releases">インストール不要のZIP ↗</a></section>
+      <section class="platform"><h3>Mac · Apple Silicon</h3><p>macOS 13以降 · Mシリーズ</p><a class="button primary" data-artifact="mac-arm64.dmg" href="https://github.com/UDteach/DeguDesktopVer2/releases">DMGをダウンロード</a><a class="text-link" data-artifact="mac-arm64.zip" href="https://github.com/UDteach/DeguDesktopVer2/releases">ZIPでダウンロード ↗</a></section>
+      <section class="platform"><h3>Mac · Intel</h3><p>macOS 13以降 · Intelプロセッサ</p><a class="button primary" data-artifact="mac-x64.dmg" href="https://github.com/UDteach/DeguDesktopVer2/releases">DMGをダウンロード</a><a class="text-link" data-artifact="mac-x64.zip" href="https://github.com/UDteach/DeguDesktopVer2/releases">ZIPでダウンロード ↗</a></section>
+    </div>
+    <p class="download-note">Macの種類は、Appleメニューの「このMacについて」で確認できます。</p>
+    <p class="download-note">開発者証明書による署名・Apple公証はありません。初回にOSの確認が表示されたら、下の開き方を参照してください。</p>
+  </section>
+
+  <section id="install" class="wrap download-help" aria-labelledby="help-title">
+    <h2 id="help-title">開き方と、使い続けるために。</h2>
+    <details class="help-detail"><summary>Windowsで初めて開く</summary><div class="help-body"><ol><li>EXEを開き、インストール先を選びます。ZIP版はフォルダーごと展開します。</li><li>「WindowsによってPCが保護されました」が出た場合、配布元を確認して「詳細情報」→「実行」を選びます。</li><li>DeguDesktopVer2を起動すると設定画面が開きます。毛色や数を選んだら閉じて構いません。</li></ol><p>トレイのデグーアイコンを右クリックすると、設定・停止・非表示・終了を選べます。</p></div></details>
+    <details class="help-detail"><summary>Macで初めて開く</summary><div class="help-body"><ol><li>対応するDMGを開き、DeguDesktopVer2.appをApplicationsへドラッグします。ZIP版も展開後にApplicationsへ移します。</li><li>ApplicationsからDeguDesktopVer2を起動します。</li><li>開発元を確認できないため開けない場合、起動を一度試してから「システム設定」→「プライバシーとセキュリティ」→「このまま開く」を選びます。</li></ol><p>メニューバーのデグーアイコンから設定を開けます。起動できない場合は<a href="https://support.apple.com/ja-jp/102445">Appleの案内</a>も参照してください。</p><p>Mac版は動作に必要なアドホック署名のみを付けています。</p></div></details>
+    <details class="help-detail"><summary>更新・終了・削除と、設定の保存先</summary><div class="help-body"><dl><dt>更新する</dt><dd>トレイ／メニューバーから終了して、新しい版を同じ場所にインストールします。ZIP版は別フォルダーへ展開してください。Mac版はApplicationsのアプリを入れ替えます。設定は引き継ぎます。自動更新はありません。</dd><dt>終了する</dt><dd>設定画面を閉じてもアプリは常駐します。トレイ／メニューバーの「終了」を選んでください。</dd><dt>削除する</dt><dd>Windowsのインストーラー版は「インストールされているアプリ」から削除します。ZIP版は展開したフォルダーを削除します。Mac版はApplicationsからゴミ箱へ移します。</dd><dt>設定の保存先</dt><dd>Windows: <code>%APPDATA%\DeguDesktopVer2</code><br>Mac: <code>~/Library/Application Support/DeguDesktopVer2</code><br>削除後も設定は残ります。初期化したい場合は、終了後にこのフォルダーを削除してください。</dd></dl></div></details>
+    <details class="help-detail"><summary>ダウンロードしたファイルを照合する</summary><div class="help-body"><p>各配布ファイルのSHA-256を公開しています。<a id="checksums" href="https://github.com/UDteach/DeguDesktopVer2/releases">SHA256SUMS.txtを開く ↗</a></p><p>Windows PowerShell:</p><pre>Get-FileHash .\ダウンロードしたファイル.exe -Algorithm SHA256</pre><p>Mac ターミナル:</p><pre>shasum -a 256 ダウンロードしたファイル.dmg</pre><p>表示された値をSHA256SUMS.txtの同じファイル名の値と比較します。</p></div></details>
+    <details class="help-detail"><summary>収録しているしぐさと、確認状況</summary><div class="help-body"><p>散歩・待機・短いダッシュ、全10色のくしくし・立ち上がり・回し車、アグーチの足ぴーんを収録。立ち上がりはジャンプとは別のしぐさです。回し車の出入りにはフェードを使っています。</p><p>アプリ内の操作と透過表示をWindowsで確認しています。Mac版はApple Silicon・Intel別のビルド環境で、起動・描画・停止・非表示・設定復元と、DMG・ZIPの内容一致を確認しました。実際のMacでの複数画面・スリープ復帰・初回のセキュリティ確認は、環境ごとの確認が必要です。</p><p>動物のしぐさと再生時間には演出上の調整があります。実際の飼育行動の観察用資料ではありません。</p><p><a href="https://github.com/UDteach/DeguDesktopVer2/blob/main/docs/DISTRIBUTION-QA.md">検査記録を見る ↗</a></p></div></details>
+    <p class="download-support"><a href="https://github.com/UDteach/DeguDesktopVer2/releases">更新履歴を見る ↗</a> · <a href="https://github.com/UDteach/DeguDesktopVer2/issues">不具合を報告する ↗</a></p>
+  </section>
+</main>
+<footer class="wrap footer"><span>DeguDesktopVer2 · UDteach / kdevelopk</span><a href="./">紹介ページへ戻る</a></footer>
+</body>
+</html>
