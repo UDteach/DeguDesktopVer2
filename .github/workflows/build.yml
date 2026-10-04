@@ -46,6 +46,8 @@ jobs:
         run: node scripts/verify-package.mjs --archive=release/${{ matrix.arch == 'arm64' && 'mac-arm64' || 'mac' }}/DeguDesktopVer2.app/Contents/Resources/app.asar
       - name: Launch and inspect packaged app
         run: npm run smoke:release
+      - name: Verify installer or DMG and extracted ZIP
+        run: node scripts/verify-distributions.mjs
       - name: Checksums
         run: node scripts/release-checksums.mjs
       - name: Upload tested artifacts
@@ -63,7 +65,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: qa-${{ matrix.platform }}-${{ matrix.arch }}
-          path: .codex/qa/release-*/
+          path: |
+            .codex/qa/release-*/
+            .codex/qa/distribution-payload-*/report.json
           if-no-files-found: ignore
   release:
     if: startsWith(github.ref, 'refs/tags/v')

@@ -16,14 +16,15 @@ checked=[]
 with zipfile.ZipFile(archive) as bundle:
     names={entry.filename for entry in bundle.infolist() if not entry.is_dir()}
     assert len(names)==len([e for e in bundle.infolist() if not e.is_dir()]), 'Duplicate ZIP member'
-    assert names==expected, 'ZIP contents differ from tested Windows directory'
+    installer_only={'resources/app-update.yml','resources/elevate.exe'}
+    assert not names-expected and expected-names<=installer_only, 'ZIP contents differ from tested Windows directory beyond installer helper files'
     for name in sorted(names):
         relative=PurePosixPath(name)
         assert not relative.is_absolute() and '..' not in relative.parts, name
         digest=sha(bundle.read(name))
         assert digest==sha((directory/name).read_bytes()), name
         if name in critical:checked.append({'path':name,'sha256':digest})
-report={'passed':True,'checkedAt':datetime.now(timezone.utc).isoformat(),'zipSha256':sha(archive.read_bytes()),'zipBytes':archive.stat().st_size,'membersVerified':len(names),'critical':checked}
+report={'passed':True,'checkedAt':datetime.now(timezone.utc).isoformat(),'zipSha256':sha(archive.read_bytes()),'zipBytes':archive.stat().st_size,'membersVerified':len(names),'installerOnlyFiles':sorted(expected-names),'critical':checked}
 output=root/'.codex/qa/zip-report.json';output.parent.mkdir(parents=True,exist_ok=True)
 output.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps(report,ensure_ascii=False))
