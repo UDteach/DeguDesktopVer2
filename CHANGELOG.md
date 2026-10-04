@@ -1,5 +1,9 @@
 # 更新履歴
 
+## 0.2.1
+
+WindowsとMacの初回公開版。Macの案内ファイルをResourcesへ配置し、実行用のアドホック署名を通す。0.2.0のMac梱包検査で見つかった問題を修正した。
+
 ## 0.2.0
 
 Electron版DeguDesktopVer2の最初の配布版。Windows用インストーラーとZIP、MacのApple Silicon／Intel用DMGとZIP、配布ページを用意。

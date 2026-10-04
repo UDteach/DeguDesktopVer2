@@ -1,6 +1,6 @@
 {
   "name": "degu-desktop-ver2",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "MofuMouseのアニメーションで過ごすデスクトップのデグー",
   "author": "UDteach",
@@ -27,11 +27,10 @@
     "productName": "DeguDesktopVer2",
     "directories": { "output": "release" },
     "files": ["app/**/*", "package.json", "THIRD_PARTY_NOTICES.md"],
-    "win": { "target": ["nsis", "zip"], "icon": "app/icon.ico", "signExecutable": false, "artifactName": "DeguDesktopVer2-${version}-windows-${arch}.${ext}" },
+    "win": { "target": ["nsis", "zip"], "icon": "app/icon.ico", "signExecutable": false, "artifactName": "DeguDesktopVer2-${version}-windows-${arch}.${ext}", "extraFiles": [{ "from": "docs/QUICKSTART-ja.txt", "to": "はじめに.txt" }] },
     "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "perMachine": false, "createDesktopShortcut": true, "createStartMenuShortcut": true, "shortcutName": "DeguDesktopVer2" },
-    "extraFiles": [{ "from": "docs/QUICKSTART-ja.txt", "to": "はじめに.txt" }],
     "artifactName": "DeguDesktopVer2-${version}-${os}-${arch}.${ext}",
-    "mac": { "target": ["dmg", "zip"], "icon": "app/icon.icns", "category": "public.app-category.entertainment", "minimumSystemVersion": "13.0", "identity": "-", "notarize": false, "hardenedRuntime": false, "artifactName": "DeguDesktopVer2-${version}-mac-${arch}.${ext}" },
+    "mac": { "target": ["dmg", "zip"], "icon": "app/icon.icns", "category": "public.app-category.entertainment", "minimumSystemVersion": "13.0", "identity": "-", "notarize": false, "hardenedRuntime": false, "artifactName": "DeguDesktopVer2-${version}-mac-${arch}.${ext}", "extraResources": [{ "from": "docs/QUICKSTART-ja.txt", "to": "QuickStart-ja.txt" }] },
     "dmg": { "title": "DeguDesktopVer2 ${version}", "contents": [{ "x": 140, "y": 180 }, { "x": 420, "y": 180, "type": "link", "path": "/Applications" }] }
   }
 }

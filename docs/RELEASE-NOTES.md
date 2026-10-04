@@ -1,4 +1,4 @@
-DeguDesktopVer2 0.2.0
+DeguDesktopVer2 0.2.1
 
 画面下で暮らすデグーのデスクトップアプリです。
 

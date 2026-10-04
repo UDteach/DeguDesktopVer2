@@ -1,4 +1,4 @@
-DeguDesktopVer2 0.2.0
+DeguDesktopVer2 0.2.1
 
 Windows: EXEでインストール、またはZIPをすべて展開してDeguDesktopVer2.exeを起動。
 Mac: チップに合うDMGを開き、DeguDesktopVer2.appをApplicationsにドラッグして起動。
