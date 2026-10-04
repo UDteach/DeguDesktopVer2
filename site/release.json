@@ -1,0 +1,49 @@
+{
+  "tag_name": "v0.2.1",
+  "published_at": "2026-10-04T17:08:18Z",
+  "html_url": "https://github.com/UDteach/DeguDesktopVer2/releases/tag/v0.2.1",
+  "assets": [
+    {
+      "browser_download_url": "https://github.com/UDteach/DeguDesktopVer2/releases/download/v0.2.1/DeguDesktopVer2-0.2.1-mac-arm64.dmg",
+      "digest": "sha256:ab1ad05c9548c9481988bd829b31c2ab36e2f5d71d77e02c4914cc7a316c4dda",
+      "name": "DeguDesktopVer2-0.2.1-mac-arm64.dmg",
+      "size": 252017461
+    },
+    {
+      "browser_download_url": "https://github.com/UDteach/DeguDesktopVer2/releases/download/v0.2.1/DeguDesktopVer2-0.2.1-mac-arm64.zip",
+      "digest": "sha256:2c7032913295090fdc44d3d82306f1a4731973544126372538be136ca8b54a5e",
+      "name": "DeguDesktopVer2-0.2.1-mac-arm64.zip",
+      "size": 250627028
+    },
+    {
+      "browser_download_url": "https://github.com/UDteach/DeguDesktopVer2/releases/download/v0.2.1/DeguDesktopVer2-0.2.1-mac-x64.dmg",
+      "digest": "sha256:56153e43345ae04b7aec150442a09b5beea6c304ca9e3a3efdb9a9260c06e038",
+      "name": "DeguDesktopVer2-0.2.1-mac-x64.dmg",
+      "size": 257495965
+    },
+    {
+      "browser_download_url": "https://github.com/UDteach/DeguDesktopVer2/releases/download/v0.2.1/DeguDesktopVer2-0.2.1-mac-x64.zip",
+      "digest": "sha256:05b805bb74eb0fdfd6f0dbac067f1c9da512d31bb6cf9f4b0244b4dabe1796e1",
+      "name": "DeguDesktopVer2-0.2.1-mac-x64.zip",
+      "size": 256138080
+    },
+    {
+      "browser_download_url": "https://github.com/UDteach/DeguDesktopVer2/releases/download/v0.2.1/DeguDesktopVer2-0.2.1-windows-x64.exe",
+      "digest": "sha256:e0284c17dc0633b5437b616cd012ebe7ac15475bccf4c2d1d6927921cdc16eeb",
+      "name": "DeguDesktopVer2-0.2.1-windows-x64.exe",
+      "size": 231464503
+    },
+    {
+      "browser_download_url": "https://github.com/UDteach/DeguDesktopVer2/releases/download/v0.2.1/DeguDesktopVer2-0.2.1-windows-x64.zip",
+      "digest": "sha256:8c01b6729d16ee9c28c6ef355b62ec4e11b324a1979a6105b87eff4b194ad6f2",
+      "name": "DeguDesktopVer2-0.2.1-windows-x64.zip",
+      "size": 275405734
+    },
+    {
+      "browser_download_url": "https://github.com/UDteach/DeguDesktopVer2/releases/download/v0.2.1/SHA256SUMS.txt",
+      "digest": "sha256:867d565698984e7ce564212b3ef0643ae7a17a4f4d5a287e49d17e191df4568b",
+      "name": "SHA256SUMS.txt",
+      "size": 612
+    }
+  ]
+}

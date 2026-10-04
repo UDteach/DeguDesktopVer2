@@ -14,6 +14,7 @@ Windows x64: インストーラーEXE / ZIP。Mac（macOS 13以降）: Apple Sil
 
 開き方、更新、削除: https://udteach.github.io/DeguDesktopVer2/download.html
 各ファイルのSHA-256は添付のSHA256SUMS.txtで確認できます。
+3つのOS/CPU環境での検査記録: https://github.com/UDteach/DeguDesktopVer2/blob/main/docs/DISTRIBUTION-QA.md
 
 回し車の出入りはフェードです。ジャンプの制作から採用した素材は立ち上がりとして収録しています。動作時間や頻度には演出上の調整があります。
 Macの実機での複数画面・スリープ復帰・初回のセキュリティ確認は、環境ごとの確認が必要です。

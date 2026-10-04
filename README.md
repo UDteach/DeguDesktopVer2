@@ -7,7 +7,7 @@
 ## インストール
 
 - Windows 10以降（x64）：EXEでインストール。ZIP版はすべて展開してDeguDesktopVer2.exeを起動。
-- Mac（macOS 13以降）：Apple Silicon / IntelそれぞれのDMGを開き、アプリをApplicationsへ移して起動。ZIP版も用意します。
+- Mac（macOS 13以降）：Apple Silicon / IntelそれぞれのDMGを開き、アプリをApplicationsへ移して起動。ZIP版も用意しています。
 
 Node.js・Python・Goは不要です。開発者証明書による署名とApple公証はありません。Macは動作に必要なアドホック署名のみです。初回のセキュリティ確認、更新、削除、SHA-256照合は[ダウンロードページ](https://udteach.github.io/DeguDesktopVer2/download.html)を参照してください。
 
@@ -50,4 +50,4 @@ Mac：~/Library/Application Support/DeguDesktopVer2/settings.json
 
 旧DeguDesktop・Degu Desktop for Real・MofuMouseの設定は変更しません。自動更新と自動起動はありません。
 
-Windowsでは透過・クリック透過・非アクティブ表示と各モーション、10色・サイズ・設定復元を確認しています。MacはCPU別のビルド環境で起動と描画を検査します。実機での画面の抜き差し・スリープ・DPI・初回Gatekeeper確認は環境ごとの確認が必要です。
+Windowsでは透過・クリック透過・非アクティブ表示と各モーション、10色・サイズ・設定復元を確認しています。MacはCPU別のビルド環境で起動・描画・停止と非表示・設定復元、DMGとZIPの内容一致を確認しました。[配布版の検査記録](docs/DISTRIBUTION-QA.md)も公開しています。実機での画面の抜き差し・スリープ・DPI・初回Gatekeeper確認は環境ごとの確認が必要です。
