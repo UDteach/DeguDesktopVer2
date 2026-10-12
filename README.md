@@ -1,5 +1,7 @@
 # DeguDesktopVer2
 
+作者：[kdevelopkのホームページ](https://kdevelopk.pages.dev/) · [X（@kdevelopk）](https://x.com/Kdevelopk)
+
 デスクトップで、デグーと暮らす。Electron製のデスクトップペットです。
 
 [紹介・動きのお試し](https://udteach.github.io/DeguDesktopVer2/) · [ダウンロードと開き方](https://udteach.github.io/DeguDesktopVer2/download.html) · [配布ファイル](https://github.com/UDteach/DeguDesktopVer2/releases)
